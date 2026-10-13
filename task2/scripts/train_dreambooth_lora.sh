@@ -4,9 +4,17 @@
 # Configuration only: these defaults are complete; 
 # no implementation is required.
 export MODEL_NAME="CompVis/stable-diffusion-v1-4"
+
 export INSTANCE_DIR="./sample_data/dreambooth-cat"
 export OUTPUT_DIR="./runs/dreambooth_cat"
 INSTANCE_PROMPT="a photo of a sks cat"
+VALIDATION_PROMPT="A photo of sks cat in a bucket"
+
+export INSTANCE_DIR="./data/senko_san"
+export OUTPUT_DIR="./runs/dreambooth_senko"
+INSTANCE_PROMPT="a photo of sks senko san"
+VALIDATION_PROMPT="sks senko san drinking tea"
+
 MIXED_PRECISION="no"
 RESOLUTION=512
 TRAIN_BATCH_SIZE=1
@@ -16,7 +24,6 @@ LEARNING_RATE="1e-4"
 LR_SCHEDULER="constant"
 LR_WARMUP_STEPS=0
 MAX_TRAIN_STEPS=500
-VALIDATION_PROMPT="A photo of sks cat in a bucket"
 VALIDATION_EPOCHS=50
 CHECKPOINTS_TOTAL_LIMIT=2
 SEED=0

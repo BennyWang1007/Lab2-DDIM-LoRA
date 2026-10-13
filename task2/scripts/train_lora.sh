@@ -3,10 +3,24 @@
 ######## BEGIN TODO: experiment configuration ########
 # Configuration only: these defaults are complete; 
 # no implementation is required.
+export HF_DATASETS_NUM_PROC=1
+
 export MODEL_NAME="CompVis/stable-diffusion-v1-4"
 export DATASET_NAME="lambdalabs/naruto-blip-captions"
 DATASET_CONFIG_NAME=""
 export OUTPUT_DIR="./runs/sd-naruto-model-lora"
+VALIDATION_PROMPT="a cute bear"
+
+export DATASET_NAME="JustInEchoes/Senko-san-NAI-V5-Curated-ORIGINAL-ANIME-ULTRA-Tags"
+export OUTPUT_DIR="./runs/sd-Senko-san-model-lora"
+VALIDATION_PROMPT="senko_san, 1girl, solo, wearing a hoodie, drinking coffee, sitting in a modern room"
+
+export DATASET_NAME="paralaif/prl_crimson_maiden_style"
+export OUTPUT_DIR="./runs/sd-prl_crimson_maiden_style-model-lora"
+VALIDATION_PROMPT="a painting of a woman in a white dress, prl_crimson_maiden_style"
+
+mkdir -p "$OUTPUT_DIR"
+
 MIXED_PRECISION="no"
 IMAGE_COLUMN="image"
 CAPTION_COLUMN="text"
@@ -21,7 +35,6 @@ LR_SCHEDULER="constant"
 LR_WARMUP_STEPS=0
 SEED=42
 CHECKPOINTS_TOTAL_LIMIT=2
-VALIDATION_PROMPT="a cute bear"
 ######## END TODO: experiment configuration ########
 
 set -- \
@@ -51,4 +64,4 @@ if [ "$RANDOM_FLIP" = "true" ]; then
   set -- "$@" --random_flip
 fi
 
-accelerate launch --mixed_precision="$MIXED_PRECISION" train_lora.py "$@"
+accelerate launch --mixed_precision="$MIXED_PRECISION" ../train_lora.py "$@"

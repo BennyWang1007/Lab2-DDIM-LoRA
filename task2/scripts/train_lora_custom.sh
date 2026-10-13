@@ -6,6 +6,12 @@
 export MODEL_NAME="CompVis/stable-diffusion-v1-4"
 export TRAIN_DATA_DIR="./sample_data/artistic-custom"
 export OUTPUT_DIR="./runs/artistic_custom"
+VALIDATION_PROMPT="a house"
+
+export TRAIN_DATA_DIR="./data/RemyLebeau_dataset"
+export OUTPUT_DIR="./runs/sd-Gambit_Dataset_and_Lora-model-lora"
+VALIDATION_PROMPT="solo, 1boy, male_focus"
+
 MIXED_PRECISION="no"
 IMAGE_COLUMN="image"
 CAPTION_COLUMN="text"
@@ -20,7 +26,6 @@ LR_SCHEDULER="constant"
 LR_WARMUP_STEPS=0
 SEED=42
 CHECKPOINTS_TOTAL_LIMIT=2
-VALIDATION_PROMPT="a house"
 ######## END TODO: experiment configuration ########
 
 set -- \
